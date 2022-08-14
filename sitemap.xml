@@ -2,17 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nilcent.github.io/posts/da-%E7%A2%8E%E5%BF%B5/</loc>
-    <lastmod>2022-08-09T21:37:38+08:00</lastmod>
+    <loc>https://nilcent.github.io/tags/design-again/</loc>
+    <lastmod>2022-08-07T21:37:38+08:00</lastmod>
+  </url><url>
+    <loc>https://nilcent.github.io/posts/da-%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98-vs-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/</loc>
+    <lastmod>2022-08-07T21:37:38+08:00</lastmod>
   </url><url>
     <loc>https://nilcent.github.io/</loc>
-    <lastmod>2022-08-09T21:37:38+08:00</lastmod>
+    <lastmod>2022-08-07T21:37:38+08:00</lastmod>
   </url><url>
     <loc>https://nilcent.github.io/posts/</loc>
-    <lastmod>2022-08-09T21:37:38+08:00</lastmod>
+    <lastmod>2022-08-07T21:37:38+08:00</lastmod>
+  </url><url>
+    <loc>https://nilcent.github.io/tags/</loc>
+    <lastmod>2022-08-07T21:37:38+08:00</lastmod>
+  </url><url>
+    <loc>https://nilcent.github.io/posts/da-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E9%AB%98%E5%B1%82%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2022-08-05T21:37:38+08:00</lastmod>
+  </url><url>
+    <loc>https://nilcent.github.io/posts/da-%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E4%BD%8E%E5%B1%82%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2022-08-03T21:37:38+08:00</lastmod>
+  </url><url>
+    <loc>https://nilcent.github.io/posts/da-%E7%A2%8E%E5%BF%B5/</loc>
+    <lastmod>2022-08-01T21:37:38+08:00</lastmod>
+  </url><url>
+    <loc>https://nilcent.github.io/archives/</loc>
   </url><url>
     <loc>https://nilcent.github.io/categories/</loc>
   </url><url>
-    <loc>https://nilcent.github.io/tags/</loc>
+    <loc>https://nilcent.github.io/search/</loc>
   </url>
 </urlset>
