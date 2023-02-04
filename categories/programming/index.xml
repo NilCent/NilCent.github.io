@@ -1,1 +1,155 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming on NilCent's Blog</title><link>https://nilcent.github.io/categories/programming/</link><description>Recent content in Programming on NilCent's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 10 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nilcent.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>在 Github 上搭建个人博客</title><link>https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><guid>https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid><description>&lt;img src="https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/bg.jpg" alt="Featured image of post 在 Github 上搭建个人博客" /></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming on NilCent's Blog</title><link>https://nilcent.github.io/categories/programming/</link><description>Recent content in Programming on NilCent's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 10 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nilcent.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>在 GitHub 上搭建个人博客</title><link>https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><guid>https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid><description>&lt;img src="https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/bg.jpg" alt="Featured image of post 在 GitHub 上搭建个人博客" />&lt;p>我曾在许多平台写过博客, 像是 CSDN, 简书, Blogger, Medium, 自建服务器等. 但这些平台或多或少有以下几点问题:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>发布文章麻烦&lt;/strong> 通常文章是在本地写的, 发布文章时需要复制一遍. 如果文章里有图片, 还需要折腾图床.&lt;/li>
+&lt;li>&lt;strong>博客样式不可自定义&lt;/strong> 有的平台网页简陋, 还一堆广告.&lt;/li>
+&lt;li>&lt;strong>大陆无法访问&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>最终我选择使用 GitHub Pages + Actions 解决以上的问题. 只要你有 Github 账号和 git 这个软件, 就可以按照这篇文章的步骤创建个人的博客.&lt;/p>
+&lt;h2 id="安装-hugo">安装 Hugo&lt;/h2>
+&lt;p>我个人用的系统是 Windows, 在安装 Hugo 前需要先安装包管理工具 &lt;a class="link" href="https://chocolatey.org/install#individual" target="_blank" rel="noopener"
+>Choco&lt;/a>.&lt;/p>
+&lt;p>安装 Hugo (可以参考 &lt;a class="link" href="https://gohugo.io/installation/windows/" target="_blank" rel="noopener"
+>Hugo 文档&lt;/a>)&lt;/p>
+&lt;p>&lt;code>choco install hugo-extended&lt;/code>&lt;/p>
+&lt;h2 id="搭建本地博客">搭建本地博客&lt;/h2>
+&lt;p>初始化本地博客&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">hugo new site myblog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd myblog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git init
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>配置 .gitignore&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">resources/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">public/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.hugo_build.lock
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>下载主题 (hugo-theme-stack 这个主题有详尽的&lt;a class="link" href="https://stack.jimmycai.com/guide/getting-started" target="_blank" rel="noopener"
+>文档&lt;/a>和示例)&lt;/p>
+&lt;p>&lt;code>git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack&lt;/code>&lt;/p>
+&lt;h2 id="配置远程仓库">配置远程仓库&lt;/h2>
+&lt;p>在 GitHub 上创建两个仓库 &amp;ndash; 私有的 &lt;code>myblog&lt;/code> 库和公开的 &lt;code>&amp;lt;username&amp;gt;.github.io&lt;/code> 库&lt;/p>
+&lt;p>创建 &lt;a class="link" href="https://github.com/settings/tokens" target="_blank" rel="noopener"
+>Personal Access Key&lt;/a>, 注意这个 key 要有 repo 和 workflow 权限.
+&lt;img src="https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot1.png"
+width="1132"
+height="318"
+srcset="https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot1_hu1873970da22b72663290b702c94afde8_35828_480x0_resize_box_3.png 480w, https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot1_hu1873970da22b72663290b702c94afde8_35828_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="355"
+data-flex-basis="854px"
+>&lt;/p>
+&lt;p>在 myblog 库的 secrets 中配置刚刚创建的 token
+&lt;img src="https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot2.png"
+width="1151"
+height="689"
+srcset="https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot2_huae28f610f633db9330e0f047756d726a_60372_480x0_resize_box_3.png 480w, https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot2_huae28f610f633db9330e0f047756d726a_60372_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="167"
+data-flex-basis="400px"
+>&lt;/p>
+&lt;p>在本地 myblog 库中添加远程源&lt;/p>
+&lt;p>&lt;code>git remote add origin https://github.com/&amp;lt;username&amp;gt;/myblog.git&lt;/code>&lt;/p>
+&lt;h2 id="配置-github-actions">配置 Github Actions&lt;/h2>
+&lt;p>使用 GitHub Actions, 可以在修改 myblog 代码的同时自动修改 &lt;code>&amp;lt;username&amp;gt;.github.io&lt;/code> 库的内容, 从而实现博客的自动更新.&lt;/p>
+&lt;p>在本地 myblog 库中创建 &lt;code>.github/workflow/main.yml&lt;/code>, 并复制下面的内容&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-v" data-lang="v">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nc">CI&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nl">on&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">push&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">workflow_dispatch&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">schedule&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">#&lt;/span> &lt;span class="nc">Runs&lt;/span> &lt;span class="nv">everyday&lt;/span> &lt;span class="nv">at&lt;/span> &lt;span class="mi">8&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">00&lt;/span> &lt;span class="nc">AM&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="nv">cron&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;0 0 * * *&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nl">jobs&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">deploy&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">runs&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nv">on&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nv">ubuntu&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mf">22.04&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">steps&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="nv">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nc">Git&lt;/span> &lt;span class="nv">checkout&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">uses&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nv">actions&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nv">checkout&lt;/span>&lt;span class="o">@&lt;/span>&lt;span class="nv">v2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="nv">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nc">Update&lt;/span> &lt;span class="nv">theme&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">#&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nc">Optional&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="nc">If&lt;/span> &lt;span class="nv">you&lt;/span> &lt;span class="nv">have&lt;/span> &lt;span class="nv">the&lt;/span> &lt;span class="nv">theme&lt;/span> &lt;span class="nv">added&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nv">submodule&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nv">you&lt;/span> &lt;span class="nv">can&lt;/span> &lt;span class="nv">pull&lt;/span> &lt;span class="vm">it&lt;/span> &lt;span class="nv">and&lt;/span> &lt;span class="nv">use&lt;/span> &lt;span class="nv">the&lt;/span> &lt;span class="nv">most&lt;/span> &lt;span class="nv">updated&lt;/span> &lt;span class="nv">version&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">run&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nv">git&lt;/span> &lt;span class="nv">submodule&lt;/span> &lt;span class="nv">update&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="nv">init&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="nv">recursive&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="nv">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nc">Setup&lt;/span> &lt;span class="nv">hugo&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">uses&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nv">peaceiris&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nv">actions&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nv">hugo&lt;/span>&lt;span class="o">@&lt;/span>&lt;span class="nv">v2&lt;/span>&lt;span class="mf">.6.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">with&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">hugo&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nv">version&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s1">&amp;#39;latest&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">extended&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="nv">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nc">Build&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">#&lt;/span> &lt;span class="nv">remove&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="nv">minify&lt;/span> &lt;span class="nv">tag&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="nv">you&lt;/span> &lt;span class="nv">do&lt;/span> &lt;span class="nv">not&lt;/span> &lt;span class="nv">need&lt;/span> &lt;span class="vm">it&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">#&lt;/span> &lt;span class="nv">docs&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nv">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="c1">//gohugo.io/hugo-pipes/minification/
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nv">run&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nv">hugo&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="nv">minify&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">-&lt;/span> &lt;span class="nv">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nc">Deploy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">uses&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nv">peaceiris&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nv">actions&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nv">gh&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nv">pages&lt;/span>&lt;span class="o">@&lt;/span>&lt;span class="nv">v3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">with&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">PERSONAL_TOKEN&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="err">$&lt;/span>&lt;span class="p">{{&lt;/span> &lt;span class="nv">secrets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nc">TOKEN&lt;/span> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">EXTERNAL_REPOSITORY&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nv">username&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nv">username&lt;/span>&lt;span class="p">&amp;gt;.&lt;/span>&lt;span class="nv">github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nv">io&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">PUBLISH_BRANCH&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nv">master&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">PUBLISH_DIR&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nv">public&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">commit_message&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="err">$&lt;/span>&lt;span class="p">{{&lt;/span> &lt;span class="nv">github&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nv">event&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nv">head_commit&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nv">message&lt;/span> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="综上">综上&lt;/h2>
+&lt;p>至此, 你只需将文章和图片 push 到远程仓库就可以自动部署博客.&lt;/p></description></item></channel></rss>
