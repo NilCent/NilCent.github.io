@@ -1,10 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on NilCent's Blog</title><link>https://nilcent.github.io/post/</link><description>Recent content in Posts on NilCent's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 10 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nilcent.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>在 GitHub 上搭建个人博客</title><link>https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><guid>https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid><description>&lt;img src="https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/bg.jpg" alt="Featured image of post 在 GitHub 上搭建个人博客" />&lt;p>我曾在许多平台写过博客, 像是 CSDN, 简书, Blogger, Medium, 自建服务器等. 但这些平台或多或少有以下几点问题:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on NilCent's Blog</title><link>https://nilcent.github.io/post/</link><description>Recent content in Posts on NilCent's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nilcent.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>戏说 Git 工作流程</title><link>https://nilcent.github.io/post/programming/%E6%88%8F%E8%AF%B4-git-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</link><pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate><guid>https://nilcent.github.io/post/programming/%E6%88%8F%E8%AF%B4-git-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</guid><description>&lt;img src="https://nilcent.github.io/post/programming/%E6%88%8F%E8%AF%B4-git-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/bg.jpg" alt="Featured image of post 戏说 Git 工作流程" />&lt;p>Git 被称为版本管理系统, 简单来说就是可以存储项目在任意时刻的快照. 在使用 Git 时, 一个十分重要的问题就是&lt;strong>该怎么组织这些快照&lt;/strong>. 也就是这篇文章要讨论的话题 &amp;ndash; Git 工作流程, 一个不属于 Git 的 Git 技巧.&lt;/p>
+&lt;p>在这篇文章, 我将通过个人博客的例子来讲一下我的 Git 工作流程.&lt;/p>
+&lt;h2 id="需求">需求&lt;/h2>
+&lt;p>个人博客的项目结构如下:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">/myblog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /posts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> deploy.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>posts 目录下存储写的文章&lt;/li>
+&lt;li>deploy.sh 是将文章发布到平台的脚本&lt;/li>
+&lt;/ul>
+&lt;p>对个人博客我有以下几个需求:&lt;/p>
+&lt;ul>
+&lt;li>写完的文章可以自动发布(CI)&lt;/li>
+&lt;li>每月要写完四篇文章(Feature)&lt;/li>
+&lt;li>错别字之类的问题要立刻修复(Hotfix)&lt;/li>
+&lt;/ul>
+&lt;p>可以看到, 绝大多数项目都是在解决和这个博客相似的问题.&lt;/p>
+&lt;h2 id="master-分支">master 分支&lt;/h2>
+&lt;p>在我的这个项目中, 文章会有完成和草稿两种状态. 我只希望发布完成的文章, 所以我需要一个分支来专门存储和发布完成的文章, 也就是 master 分支.&lt;/p>
+&lt;p>master 分支负责管理生产环境的代码, 只会把开发且测试完的代码合到 master 分支上. 通常还会将项目的编译部署之类的工作交给 master 来做, 每当合并或推送代码时, 自动执行指定的脚本.&lt;/p>
+&lt;h2 id="topic-分支">topic 分支&lt;/h2>
+&lt;p>我在写作时, 通常会同时写多篇文章. 比如说, 我会在月初选好四个题目, 每一篇都写点内容. 为了避免代码冲突, 也是图一个方便, 很多时候我更倾向与将这些文章放在同一个分支内. 但是很有可能会出现像是写完的文章不能立刻发布, 写不完的文章只能删掉之类的问题.&lt;/p>
+&lt;p>一个比较符合逻辑的做法是 &amp;ndash; 一篇文章(Feature)一个分支, 也就是 topic 分支.&lt;/p>
+&lt;p>在实际项目中, 功能提前上线或功能取消是很常见的事情. 绝不能将不同的功能合到同一个分支中开发.&lt;/p>
+&lt;h2 id="dev-分支">dev 分支&lt;/h2>
+&lt;p>在使用 topic 分支后, 一个显著的问题就是合并会变麻烦, 我不希望在 master 分支上解决合并冲突, 这就一个需要专门负责开发的分支 &amp;ndash; dev 分支.&lt;/p>
+&lt;p>topic 分支只由 dev 分支派生, 完成功能后, 合并回 dev 分支.&lt;/p>
+&lt;p>master 分支要尽可能以 fast-forward 的方式合并 dev 分支.&lt;/p>
+&lt;p>除此之外, 测试工作一般也在 dev 分支上进行. 当在开发阶段发现 bug 时, 把它当作一个新的 topic 处理, 不要在 dev 上直接改动.&lt;/p>
+&lt;h2 id="hotfix-分支">hotfix 分支&lt;/h2>
+&lt;p>生产环境的大多数错误, 是不能等到下一个版本再解决的. 这时就需要从 master 分支派生出用于修复 bug 的分支, 也就是 hotfix 分支.&lt;/p>
+&lt;p>要注意的是, 测试完 hotfix 分支后, 要合并到 master 和 dev 两个分支上.&lt;/p>
+&lt;h2 id="综上">综上&lt;/h2>
+&lt;p>简单来说, 我将上述的四种分支分为了两类:&lt;/p>
+&lt;ul>
+&lt;li>主分支(伴随整个项目开发周期, 只合并和派生分支):
+&lt;ul>
+&lt;li>master 负责发布生产环境代码&lt;/li>
+&lt;li>dev 负责开发和测试工作&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>开发分支(写代码的分支, 被合并后生命周期结束):
+&lt;ul>
+&lt;li>topic 实现功能的场所&lt;/li>
+&lt;li>hotfix 解决生产环境 bug 的场所&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>这也就是我的 Git 工作流程.&lt;/p></description></item><item><title>在 GitHub 上搭建个人博客</title><link>https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><guid>https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid><description>&lt;img src="https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/bg.jpg" alt="Featured image of post 在 GitHub 上搭建个人博客" />&lt;p>我曾在许多平台写过博客, 像是 CSDN, 简书, Blogger, Medium等. 但这些平台或多或少有以下几点问题:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>发布文章麻烦&lt;/strong> 通常文章是在本地写的, 发布文章时需要复制一遍. 如果文章里有图片, 还需要折腾图床.&lt;/li>
 &lt;li>&lt;strong>博客样式不可自定义&lt;/strong> 有的平台网页简陋, 还一堆广告.&lt;/li>
 &lt;li>&lt;strong>大陆无法访问&lt;/strong>&lt;/li>
 &lt;/ul>
-&lt;p>最终我选择使用 GitHub Pages + Actions 解决以上的问题. 只要你有 Github 账号和 git 这个软件, 就可以按照这篇文章的步骤创建个人的博客.&lt;/p>
+&lt;p>而自建服务器虽说可以解决以上问题, 却需要买服务器和域名.&lt;/p>
+&lt;p>最终我选择使用介于平台和自建博客两者的解决方案 &amp;ndash; GitHub Pages + Actions. 每一个 GitHub 用户都可以拥有一个属于自己的网站. 只要你有 Github 账号和 git 这个软件, 就可以按照这篇文章的步骤创建个人的博客.&lt;/p>
 &lt;h2 id="安装-hugo">安装 Hugo&lt;/h2>
 &lt;p>我个人用的系统是 Windows, 在安装 Hugo 前需要先安装包管理工具 &lt;a class="link" href="https://chocolatey.org/install#individual" target="_blank" rel="noopener"
 >Choco&lt;/a>.&lt;/p>
