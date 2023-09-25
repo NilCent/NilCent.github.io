@@ -75,44 +75,44 @@ choco install hugo-extended
 </span><span class=lnt>36
 </span><span class=lnt>37
 </span><span class=lnt>38
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-v data-lang=v><span class=line><span class=cl><span class=nv>name</span><span class=p>:</span> <span class=nc>CI</span>
-</span></span><span class=line><span class=cl><span class=nl>on</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>  <span class=nl>push</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>  <span class=nl>workflow_dispatch</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>  <span class=nl>schedule</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>    <span class=o>#</span> <span class=nc>Runs</span> <span class=nv>everyday</span> <span class=nv>at</span> <span class=mi>8</span><span class=p>:</span><span class=mi>00</span> <span class=nc>AM</span>
-</span></span><span class=line><span class=cl>    <span class=o>-</span> <span class=nv>cron</span><span class=p>:</span> <span class=s2>&#34;0 0 * * *&#34;</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>name: CI
+</span></span><span class=line><span class=cl>on:
+</span></span><span class=line><span class=cl>  push:
+</span></span><span class=line><span class=cl>  workflow_dispatch:
+</span></span><span class=line><span class=cl>  schedule:
+</span></span><span class=line><span class=cl>    # Runs everyday at 8:00 AM
+</span></span><span class=line><span class=cl>    - cron: &#34;0 0 * * *&#34;
 </span></span><span class=line><span class=cl>        
-</span></span><span class=line><span class=cl><span class=nl>jobs</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>  <span class=nl>deploy</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>    <span class=nv>runs</span><span class=o>-</span><span class=nv>on</span><span class=p>:</span> <span class=nv>ubuntu</span><span class=o>-</span><span class=mf>22.04</span>
-</span></span><span class=line><span class=cl>    <span class=nl>steps</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>      <span class=o>-</span> <span class=nv>name</span><span class=p>:</span> <span class=nc>Git</span> <span class=nv>checkout</span>
-</span></span><span class=line><span class=cl>        <span class=nv>uses</span><span class=p>:</span> <span class=nv>actions</span><span class=o>/</span><span class=nv>checkout</span><span class=o>@</span><span class=nv>v2</span>
+</span></span><span class=line><span class=cl>jobs:
+</span></span><span class=line><span class=cl>  deploy:
+</span></span><span class=line><span class=cl>    runs-on: ubuntu-22.04
+</span></span><span class=line><span class=cl>    steps:
+</span></span><span class=line><span class=cl>      - name: Git checkout
+</span></span><span class=line><span class=cl>        uses: actions/checkout@v2
 </span></span><span class=line><span class=cl>        
-</span></span><span class=line><span class=cl>      <span class=o>-</span> <span class=nv>name</span><span class=p>:</span> <span class=nc>Update</span> <span class=nv>theme</span>
-</span></span><span class=line><span class=cl>        <span class=o>#</span> <span class=p>(</span><span class=nc>Optional</span><span class=p>)</span><span class=nc>If</span> <span class=nv>you</span> <span class=nv>have</span> <span class=nv>the</span> <span class=nv>theme</span> <span class=nv>added</span> <span class=k>as</span> <span class=nv>submodule</span><span class=p>,</span> <span class=nv>you</span> <span class=nv>can</span> <span class=nv>pull</span> <span class=vm>it</span> <span class=nv>and</span> <span class=nv>use</span> <span class=nv>the</span> <span class=nv>most</span> <span class=nv>updated</span> <span class=nv>version</span>
-</span></span><span class=line><span class=cl>        <span class=nv>run</span><span class=p>:</span> <span class=nv>git</span> <span class=nv>submodule</span> <span class=nv>update</span> <span class=o>--</span><span class=nv>init</span> <span class=o>--</span><span class=nv>recursive</span>
+</span></span><span class=line><span class=cl>      - name: Update theme
+</span></span><span class=line><span class=cl>        # (Optional)If you have the theme added as submodule, you can pull it and use the most updated version
+</span></span><span class=line><span class=cl>        run: git submodule update --init --recursive
 </span></span><span class=line><span class=cl>        
-</span></span><span class=line><span class=cl>      <span class=o>-</span> <span class=nv>name</span><span class=p>:</span> <span class=nc>Setup</span> <span class=nv>hugo</span>
-</span></span><span class=line><span class=cl>        <span class=nv>uses</span><span class=p>:</span> <span class=nv>peaceiris</span><span class=o>/</span><span class=nv>actions</span><span class=o>-</span><span class=nv>hugo</span><span class=o>@</span><span class=nv>v2</span><span class=mf>.6.0</span>
-</span></span><span class=line><span class=cl>        <span class=nl>with</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>          <span class=nv>hugo</span><span class=o>-</span><span class=nv>version</span><span class=p>:</span> <span class=s1>&#39;latest&#39;</span>
-</span></span><span class=line><span class=cl>          <span class=nv>extended</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>      - name: Setup hugo
+</span></span><span class=line><span class=cl>        uses: peaceiris/actions-hugo@v2.6.0
+</span></span><span class=line><span class=cl>        with:
+</span></span><span class=line><span class=cl>          hugo-version: &#39;latest&#39;
+</span></span><span class=line><span class=cl>          extended: true
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>      <span class=o>-</span> <span class=nv>name</span><span class=p>:</span> <span class=nc>Build</span>
-</span></span><span class=line><span class=cl>        <span class=o>#</span> <span class=nv>remove</span> <span class=o>--</span><span class=nv>minify</span> <span class=nv>tag</span> <span class=k>if</span> <span class=nv>you</span> <span class=nv>do</span> <span class=nv>not</span> <span class=nv>need</span> <span class=vm>it</span>
-</span></span><span class=line><span class=cl>        <span class=o>#</span> <span class=nv>docs</span><span class=p>:</span> <span class=nv>https</span><span class=p>:</span><span class=c1>//gohugo.io/hugo-pipes/minification/
-</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=nv>run</span><span class=p>:</span> <span class=nv>hugo</span> <span class=o>--</span><span class=nv>minify</span>
+</span></span><span class=line><span class=cl>      - name: Build
+</span></span><span class=line><span class=cl>        # remove --minify tag if you do not need it
+</span></span><span class=line><span class=cl>        # docs: https://gohugo.io/hugo-pipes/minification/
+</span></span><span class=line><span class=cl>        run: hugo --minify
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>      <span class=o>-</span> <span class=nv>name</span><span class=p>:</span> <span class=nc>Deploy</span>
-</span></span><span class=line><span class=cl>        <span class=nv>uses</span><span class=p>:</span> <span class=nv>peaceiris</span><span class=o>/</span><span class=nv>actions</span><span class=o>-</span><span class=nv>gh</span><span class=o>-</span><span class=nv>pages</span><span class=o>@</span><span class=nv>v3</span>
-</span></span><span class=line><span class=cl>        <span class=nl>with</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>          <span class=nc>PERSONAL_TOKEN</span><span class=p>:</span> <span class=err>$</span><span class=p>{{</span> <span class=nv>secrets</span><span class=p>.</span><span class=nc>TOKEN</span> <span class=p>}}</span>
-</span></span><span class=line><span class=cl>          <span class=nc>EXTERNAL_REPOSITORY</span><span class=p>:</span> <span class=p>&lt;</span><span class=nv>username</span><span class=p>&gt;</span><span class=o>/</span><span class=p>&lt;</span><span class=nv>username</span><span class=p>&gt;.</span><span class=nv>github</span><span class=p>.</span><span class=nv>io</span>
-</span></span><span class=line><span class=cl>          <span class=nc>PUBLISH_BRANCH</span><span class=p>:</span> <span class=nv>master</span>
-</span></span><span class=line><span class=cl>          <span class=nc>PUBLISH_DIR</span><span class=p>:</span> <span class=p>.</span><span class=o>/</span><span class=nv>public</span>
-</span></span><span class=line><span class=cl>          <span class=nv>commit_message</span><span class=p>:</span> <span class=err>$</span><span class=p>{{</span> <span class=nv>github</span><span class=p>.</span><span class=nv>event</span><span class=p>.</span><span class=nv>head_commit</span><span class=p>.</span><span class=nv>message</span> <span class=p>}}</span>
+</span></span><span class=line><span class=cl>      - name: Deploy
+</span></span><span class=line><span class=cl>        uses: peaceiris/actions-gh-pages@v3
+</span></span><span class=line><span class=cl>        with:
+</span></span><span class=line><span class=cl>          PERSONAL_TOKEN: ${{ secrets.TOKEN }}
+</span></span><span class=line><span class=cl>          EXTERNAL_REPOSITORY: &lt;username&gt;/&lt;username&gt;.github.io
+</span></span><span class=line><span class=cl>          PUBLISH_BRANCH: master
+</span></span><span class=line><span class=cl>          PUBLISH_DIR: ./public
+</span></span><span class=line><span class=cl>          commit_message: ${{ github.event.head_commit.message }}
 </span></span></code></pre></td></tr></table></div></div><h2 id=综上>综上</h2><p>至此, 你只需将文章和图片 push 到远程仓库就可以自动部署博客.</p></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/post/programming/%E6%88%8F%E8%AF%B4-git-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/><div class=article-image><img src=/post/programming/%E6%88%8F%E8%AF%B4-git-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/bg.b43103f2cebeec0d73937c0ccf7e139e_hu3f7e426cb1541e7901b449dc8d8e12a8_1592754_250x150_fill_q75_box_smart1.jpg width=250 height=150 loading=lazy alt="Featured image of post 戏说 Git 工作流程" data-hash="md5-tDED8s6+7A1zk3wMz34Tng=="></div><div class=article-details><h2 class=article-title>戏说 Git 工作流程</h2></div></a></article></div></div></aside><div class=disqus-container></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
 2020 -
 2023 NilCent's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.16.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
