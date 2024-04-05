@@ -1,0 +1,133 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content='我曾在许多平台写过博客, 像是 CSDN, 简书, Blogger, Medium等. 但这些平台或多或少有以下几点问题:
+发布文章麻烦 通常文章是在本地写的, 发布文章时需要复制一遍. 如果文章里有图片, 还需要折腾图床. 博客样式不可自定义 有的平台网页简陋, 还一堆广告. 大陆无法访问 而自建服务器虽说可以解决以上问题, 却需要买服务器和域名.
+最终我选择使用介于平台和自建博客两者的解决方案 &amp;ndash; GitHub Pages + Actions. 每一个 GitHub 用户都可以拥有一个属于自己的网站. 只要你有 Github 账号和 git 这个软件, 就可以按照这篇文章的步骤创建个人的博客.
+安装 Hugo 我个人用的系统是 Windows, 在安装 Hugo 前需要先安装包管理工具 Choco.
+安装 Hugo (可以参考 Hugo 文档)
+choco install hugo-extended
+搭建本地博客 初始化本地博客
+1 2 3 hugo new site myblog cd myblog git init 配置 .gitignore
+1 2 3 resources/ public/ .hugo_build.lock 下载主题 (hugo-theme-stack 这个主题有详尽的文档和示例)'><title>在 GitHub 上搭建个人博客</title>
+<link rel=canonical href=https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/><link rel=stylesheet href=/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css><meta property='og:title' content='在 GitHub 上搭建个人博客'><meta property='og:description' content='我曾在许多平台写过博客, 像是 CSDN, 简书, Blogger, Medium等. 但这些平台或多或少有以下几点问题:
+发布文章麻烦 通常文章是在本地写的, 发布文章时需要复制一遍. 如果文章里有图片, 还需要折腾图床. 博客样式不可自定义 有的平台网页简陋, 还一堆广告. 大陆无法访问 而自建服务器虽说可以解决以上问题, 却需要买服务器和域名.
+最终我选择使用介于平台和自建博客两者的解决方案 &amp;ndash; GitHub Pages + Actions. 每一个 GitHub 用户都可以拥有一个属于自己的网站. 只要你有 Github 账号和 git 这个软件, 就可以按照这篇文章的步骤创建个人的博客.
+安装 Hugo 我个人用的系统是 Windows, 在安装 Hugo 前需要先安装包管理工具 Choco.
+安装 Hugo (可以参考 Hugo 文档)
+choco install hugo-extended
+搭建本地博客 初始化本地博客
+1 2 3 hugo new site myblog cd myblog git init 配置 .gitignore
+1 2 3 resources/ public/ .hugo_build.lock 下载主题 (hugo-theme-stack 这个主题有详尽的文档和示例)'><meta property='og:url' content='https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/'><meta property='og:site_name' content="NilCent's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2023-01-10T00:00:00+00:00'><meta property='article:modified_time' content='2023-01-10T00:00:00+00:00'><meta property='og:image' content='https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/bg.jpg'><meta name=twitter:title content="在 GitHub 上搭建个人博客"><meta name=twitter:description content="我曾在许多平台写过博客, 像是 CSDN, 简书, Blogger, Medium等. 但这些平台或多或少有以下几点问题:
+发布文章麻烦 通常文章是在本地写的, 发布文章时需要复制一遍. 如果文章里有图片, 还需要折腾图床. 博客样式不可自定义 有的平台网页简陋, 还一堆广告. 大陆无法访问 而自建服务器虽说可以解决以上问题, 却需要买服务器和域名.
+最终我选择使用介于平台和自建博客两者的解决方案 &amp;ndash; GitHub Pages + Actions. 每一个 GitHub 用户都可以拥有一个属于自己的网站. 只要你有 Github 账号和 git 这个软件, 就可以按照这篇文章的步骤创建个人的博客.
+安装 Hugo 我个人用的系统是 Windows, 在安装 Hugo 前需要先安装包管理工具 Choco.
+安装 Hugo (可以参考 Hugo 文档)
+choco install hugo-extended
+搭建本地博客 初始化本地博客
+1 2 3 hugo new site myblog cd myblog git init 配置 .gitignore
+1 2 3 resources/ public/ .hugo_build.lock 下载主题 (hugo-theme-stack 这个主题有详尽的文档和示例)"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://nilcent.github.io/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/bg.jpg'></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hue610e71a00f5f1b12e146586ea225f20_9155_300x0_resize_q75_box.jpg width=300 height=271 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>NilCent's Blog</a></h1><h2 class=site-description></h2></div></header><ol class=social-menu><li><a href=https://github.com/NilCent target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://nilcent.github.io/index.xml target=_blank title=rss rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/page/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/page/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><div class=menu-bottom-section><li id=i18n-switch><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://nilcent.github.io/ selected></option></select></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#安装-hugo>安装 Hugo</a></li><li><a href=#搭建本地博客>搭建本地博客</a></li><li><a href=#配置远程仓库>配置远程仓库</a></li><li><a href=#配置-github-actions>配置 Github Actions</a></li><li><a href=#综上>综上</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/><img src=/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/bg_hueeacbe46f5fcb0be66108555521c9bcf_7415817_800x0_resize_q75_box.jpg srcset="/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/bg_hueeacbe46f5fcb0be66108555521c9bcf_7415817_800x0_resize_q75_box.jpg 800w, /post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/bg_hueeacbe46f5fcb0be66108555521c9bcf_7415817_1600x0_resize_q75_box.jpg 1600w" width=800 height=533 loading=lazy alt="Featured image of post 在 GitHub 上搭建个人博客"></a></div><div class=article-details><header class=article-category><a href=/categories/programming/>Programming</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/>在 GitHub 上搭建个人博客</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jan 10, 2023</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><p>我曾在许多平台写过博客, 像是 CSDN, 简书, Blogger, Medium等. 但这些平台或多或少有以下几点问题:</p><ul><li><strong>发布文章麻烦</strong> 通常文章是在本地写的, 发布文章时需要复制一遍. 如果文章里有图片, 还需要折腾图床.</li><li><strong>博客样式不可自定义</strong> 有的平台网页简陋, 还一堆广告.</li><li><strong>大陆无法访问</strong></li></ul><p>而自建服务器虽说可以解决以上问题, 却需要买服务器和域名.</p><p>最终我选择使用介于平台和自建博客两者的解决方案 &ndash; GitHub Pages + Actions. 每一个 GitHub 用户都可以拥有一个属于自己的网站. 只要你有 Github 账号和 git 这个软件, 就可以按照这篇文章的步骤创建个人的博客.</p><h2 id=安装-hugo>安装 Hugo</h2><p>我个人用的系统是 Windows, 在安装 Hugo 前需要先安装包管理工具 <a class=link href=https://chocolatey.org/install#individual target=_blank rel=noopener>Choco</a>.</p><p>安装 Hugo (可以参考 <a class=link href=https://gohugo.io/installation/windows/ target=_blank rel=noopener>Hugo 文档</a>)</p><p><code>choco install hugo-extended</code></p><h2 id=搭建本地博客>搭建本地博客</h2><p>初始化本地博客</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>hugo new site myblog
+</span></span><span class=line><span class=cl>cd myblog
+</span></span><span class=line><span class=cl>git init
+</span></span></code></pre></td></tr></table></div></div><p>配置 .gitignore</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>resources/
+</span></span><span class=line><span class=cl>public/
+</span></span><span class=line><span class=cl>.hugo_build.lock
+</span></span></code></pre></td></tr></table></div></div><p>下载主题 (hugo-theme-stack 这个主题有详尽的<a class=link href=https://stack.jimmycai.com/guide/getting-started target=_blank rel=noopener>文档</a>和示例)</p><p><code>git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack</code></p><h2 id=配置远程仓库>配置远程仓库</h2><p>在 GitHub 上创建两个仓库 &ndash; 私有的 <code>myblog</code> 库和公开的 <code>&lt;username>.github.io</code> 库</p><p>创建 <a class=link href=https://github.com/settings/tokens target=_blank rel=noopener>Personal Access Key</a>, 注意这个 key 要有 repo 和 workflow 权限.
+<img src=/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot1.png width=1132 height=318 srcset="/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot1_hu1873970da22b72663290b702c94afde8_35828_480x0_resize_box_3.png 480w, /post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot1_hu1873970da22b72663290b702c94afde8_35828_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=355 data-flex-basis=854px></p><p>在 myblog 库的 secrets 中配置刚刚创建的 token
+<img src=/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot2.png width=1151 height=689 srcset="/post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot2_huae28f610f633db9330e0f047756d726a_60372_480x0_resize_box_3.png 480w, /post/programming/%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/screenshot2_huae28f610f633db9330e0f047756d726a_60372_1024x0_resize_box_3.png 1024w" loading=lazy class=gallery-image data-flex-grow=167 data-flex-basis=400px></p><p>在本地 myblog 库中添加远程源</p><p><code>git remote add origin https://github.com/&lt;username>/myblog.git</code></p><h2 id=配置-github-actions>配置 Github Actions</h2><p>使用 GitHub Actions, 可以在修改 myblog 代码的同时自动修改 <code>&lt;username>.github.io</code> 库的内容, 从而实现博客的自动更新.</p><p>在本地 myblog 库中创建 <code>.github/workflow/main.yml</code>, 并复制下面的内容</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>name: CI
+</span></span><span class=line><span class=cl>on:
+</span></span><span class=line><span class=cl>  push:
+</span></span><span class=line><span class=cl>  workflow_dispatch:
+</span></span><span class=line><span class=cl>  schedule:
+</span></span><span class=line><span class=cl>    # Runs everyday at 8:00 AM
+</span></span><span class=line><span class=cl>    - cron: &#34;0 0 * * *&#34;
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>jobs:
+</span></span><span class=line><span class=cl>  deploy:
+</span></span><span class=line><span class=cl>    runs-on: ubuntu-22.04
+</span></span><span class=line><span class=cl>    steps:
+</span></span><span class=line><span class=cl>      - name: Git checkout
+</span></span><span class=line><span class=cl>        uses: actions/checkout@v2
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>      - name: Update theme
+</span></span><span class=line><span class=cl>        # (Optional)If you have the theme added as submodule, you can pull it and use the most updated version
+</span></span><span class=line><span class=cl>        run: git submodule update --init --recursive
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>      - name: Setup hugo
+</span></span><span class=line><span class=cl>        uses: peaceiris/actions-hugo@v2.6.0
+</span></span><span class=line><span class=cl>        with:
+</span></span><span class=line><span class=cl>          hugo-version: &#39;latest&#39;
+</span></span><span class=line><span class=cl>          extended: true
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      - name: Build
+</span></span><span class=line><span class=cl>        # remove --minify tag if you do not need it
+</span></span><span class=line><span class=cl>        # docs: https://gohugo.io/hugo-pipes/minification/
+</span></span><span class=line><span class=cl>        run: hugo --minify
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      - name: Deploy
+</span></span><span class=line><span class=cl>        uses: peaceiris/actions-gh-pages@v3
+</span></span><span class=line><span class=cl>        with:
+</span></span><span class=line><span class=cl>          PERSONAL_TOKEN: ${{ secrets.TOKEN }}
+</span></span><span class=line><span class=cl>          EXTERNAL_REPOSITORY: &lt;username&gt;/&lt;username&gt;.github.io
+</span></span><span class=line><span class=cl>          PUBLISH_BRANCH: master
+</span></span><span class=line><span class=cl>          PUBLISH_DIR: ./public
+</span></span><span class=line><span class=cl>          commit_message: ${{ github.event.head_commit.message }}
+</span></span></code></pre></td></tr></table></div></div><h2 id=综上>综上</h2><p>至此, 你只需将文章和图片 push 到远程仓库就可以自动部署博客.</p></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section><section class=article-lastmod><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>Last updated on Jan 10, 2023 00:00 UTC</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/post/programming/%E6%88%8F%E8%AF%B4-git-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/><div class=article-image><img src=/post/programming/%E6%88%8F%E8%AF%B4-git-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/bg.b43103f2cebeec0d73937c0ccf7e139e_hu3f7e426cb1541e7901b449dc8d8e12a8_1592754_250x150_fill_q75_box_smart1.jpg width=250 height=150 loading=lazy alt="Featured image of post 戏说 Git 工作流程" data-hash="md5-tDED8s6+7A1zk3wMz34Tng=="></div><div class=article-details><h2 class=article-title>戏说 Git 工作流程</h2></div></a></article></div></div></aside><div class=disqus-container></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2024 NilCent's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.16.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
