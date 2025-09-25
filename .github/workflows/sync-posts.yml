@@ -1,0 +1,45 @@
+name: Sync Posts from Notes
+
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: '0 */6 * * *'  # 每6小时自动同步一次
+  workflow_dispatch:        # 允许手动触发
+
+jobs:
+  sync-posts:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Blog Repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.PAT }}
+        
+    - name: Sync Posts from Notes Repo
+      run: |
+        # 清空现有文章
+        rm -rf content/posts/*
+        
+        # 克隆笔记库的publish目录
+        git clone --depth 1 --filter=blob:none --sparse https://${{ secrets.PAT }}@github.com/NilCent/codenote.git temp-notes
+        cd temp-notes
+        git sparse-checkout set publish
+        cd ..
+        
+        # 复制文章到content/posts
+        cp -r temp-notes/publish/* content/posts/
+        rm -rf temp-notes
+        
+        # 如果有图片等资源，也需要同步
+        # mkdir -p static/images
+        # cp -r content/posts/images/* static/images/ 2>/dev/null || true
+
+    - name: Commit and Push Changes
+      run: |
+        git config user.name "NilCent"
+        git config user.email "nilcent@icloud.com"
+        git add content/posts/
+        # git add static/images/ 2>/dev/null || true
+        git commit -m "自动同步博客文章: $(date +'%Y-%m-%d %H:%M')" || echo "没有变化"
+        git push
