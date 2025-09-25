@@ -19,7 +19,7 @@ jobs:
     - name: Sync Posts from Notes Repo
       run: |
         # 清空现有文章
-        rm -rf content/posts/*
+        # rm -rf content/post/*
         
         # 克隆笔记库的publish目录
         git clone --depth 1 --filter=blob:none --sparse https://${{ secrets.PAT }}@github.com/NilCent/codenote.git temp-notes
@@ -28,7 +28,7 @@ jobs:
         cd ..
         
         # 复制文章到content/posts
-        cp -r temp-notes/publish/* content/posts/
+        cp -r temp-notes/publish/* content/post/
         rm -rf temp-notes
         
         # 如果有图片等资源，也需要同步
@@ -39,7 +39,7 @@ jobs:
       run: |
         git config user.name "NilCent"
         git config user.email "nilcent@icloud.com"
-        git add content/posts/
+        git add content/post/
         # git add static/images/ 2>/dev/null || true
         git commit -m "自动同步博客文章: $(date +'%Y-%m-%d %H:%M')" || echo "没有变化"
         git push
