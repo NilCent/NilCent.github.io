@@ -1,6 +1,6 @@
 ---
-title: Example Category
-description: A description of this category
+title: MOC
+description: Maps of Content
 image:
 
 # Badge style
