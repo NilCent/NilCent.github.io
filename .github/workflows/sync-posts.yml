@@ -19,7 +19,7 @@ jobs:
     - name: Sync Posts from Notes Repo
       run: |
         # 清空现有文章
-        # rm -rf content/post/*
+        rm -rf content/post/*
         
         # 克隆笔记库的publish目录
         git clone --depth 1 --filter=blob:none --sparse https://${{ secrets.PAT }}@github.com/NilCent/codenote.git temp-notes
