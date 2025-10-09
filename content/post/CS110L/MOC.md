@@ -12,7 +12,7 @@ tags:
 CS110L 这门课程大体可以分为两个部分: "Rust 和常见的语言有什么不同" & "Rust 中如何处理并发".
 
 ## Rust 和常见语言有什么不同
-+ [rust-是如何避免内存错误的](/content/post/CS110L/CS110L-error_handling.md)
++ [[rust-是如何避免内存错误的]]
 + [[怎么在-rust-中处理错误]]
 
 
