@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MOC on Nilcent's Blog</title><link>https://NilCent.github.io/categories/moc/</link><description>Recent content in MOC on Nilcent's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 27 Sep 2025 22:00:00 +0000</lastBuildDate><atom:link href="https://NilCent.github.io/categories/moc/index.xml" rel="self" type="application/rss+xml"/><item><title>CS110L MOC</title><link>https://NilCent.github.io/p/cs110l-moc/</link><pubDate>Sat, 27 Sep 2025 22:00:00 +0000</pubDate><guid>https://NilCent.github.io/p/cs110l-moc/</guid><description>&lt;h1 id="cs110l-moc"&gt;CS110L MOC
+&lt;/h1&gt;&lt;p&gt;CS110L 这门课程大体可以分为两个部分: &amp;ldquo;Rust 和常见的语言有什么不同&amp;rdquo; &amp;amp; &amp;ldquo;Rust 中如何处理并发&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id="rust-和常见语言有什么不同"&gt;Rust 和常见语言有什么不同
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;[[rust-是如何避免内存错误的]]&lt;/li&gt;
+&lt;li&gt;[[怎么在-rust-中处理错误]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="rust-中如何处理并发"&gt;Rust 中如何处理并发
+&lt;/h2&gt;&lt;h2 id="参考资料"&gt;参考资料
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;CS110L 2020 &lt;a class="link" href="https://reberhardt.com/cs110l/spring-2020/" target="_blank" rel="noopener"
+&gt;https://reberhardt.com/cs110l/spring-2020/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CS110L 2021 &lt;a class="link" href="https://reberhardt.com/cs110l/spring-2021/" target="_blank" rel="noopener"
+&gt;https://reberhardt.com/cs110l/spring-2021/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CS110L 2022 &lt;a class="link" href="https://web.stanford.edu/class/cs110l/" target="_blank" rel="noopener"
+&gt;https://web.stanford.edu/class/cs110l/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

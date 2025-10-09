@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CS110L on Nilcent's Blog</title><link>https://NilCent.github.io/tags/cs110l/</link><description>Recent content in CS110L on Nilcent's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 27 Sep 2025 22:00:00 +0000</lastBuildDate><atom:link href="https://NilCent.github.io/tags/cs110l/index.xml" rel="self" type="application/rss+xml"/><item><title>CS110L MOC</title><link>https://NilCent.github.io/p/cs110l-moc/</link><pubDate>Sat, 27 Sep 2025 22:00:00 +0000</pubDate><guid>https://NilCent.github.io/p/cs110l-moc/</guid><description>&lt;h1 id="cs110l-moc"&gt;CS110L MOC
+&lt;/h1&gt;&lt;p&gt;CS110L 这门课程大体可以分为两个部分: &amp;ldquo;Rust 和常见的语言有什么不同&amp;rdquo; &amp;amp; &amp;ldquo;Rust 中如何处理并发&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id="rust-和常见语言有什么不同"&gt;Rust 和常见语言有什么不同
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;[[rust-是如何避免内存错误的]]&lt;/li&gt;
+&lt;li&gt;[[怎么在-rust-中处理错误]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="rust-中如何处理并发"&gt;Rust 中如何处理并发
+&lt;/h2&gt;&lt;h2 id="参考资料"&gt;参考资料
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;CS110L 2020 &lt;a class="link" href="https://reberhardt.com/cs110l/spring-2020/" target="_blank" rel="noopener"
+&gt;https://reberhardt.com/cs110l/spring-2020/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CS110L 2021 &lt;a class="link" href="https://reberhardt.com/cs110l/spring-2021/" target="_blank" rel="noopener"
+&gt;https://reberhardt.com/cs110l/spring-2021/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CS110L 2022 &lt;a class="link" href="https://web.stanford.edu/class/cs110l/" target="_blank" rel="noopener"
+&gt;https://web.stanford.edu/class/cs110l/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Rust 是如何避免内存错误的</title><link>https://NilCent.github.io/p/rust-%E6%98%AF%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%86%85%E5%AD%98%E9%94%99%E8%AF%AF%E7%9A%84/</link><pubDate>Sat, 27 Sep 2025 11:00:00 +0000</pubDate><guid>https://NilCent.github.io/p/rust-%E6%98%AF%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%86%85%E5%AD%98%E9%94%99%E8%AF%AF%E7%9A%84/</guid><description>&lt;h1 id="rust-是如何避免内存错误的"&gt;Rust 是如何避免内存错误的
+&lt;/h1&gt;</description></item><item><title>怎么在 Rust 中处理错误</title><link>https://NilCent.github.io/p/%E6%80%8E%E4%B9%88%E5%9C%A8-rust-%E4%B8%AD%E5%A4%84%E7%90%86%E9%94%99%E8%AF%AF/</link><pubDate>Sat, 27 Sep 2025 11:00:00 +0000</pubDate><guid>https://NilCent.github.io/p/%E6%80%8E%E4%B9%88%E5%9C%A8-rust-%E4%B8%AD%E5%A4%84%E7%90%86%E9%94%99%E8%AF%AF/</guid><description>&lt;h1 id="怎么在-rust-中处理错误"&gt;怎么在 Rust 中处理错误
+&lt;/h1&gt;</description></item></channel></rss>
